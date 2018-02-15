@@ -1,0 +1,104 @@
+
+/* LOGIN PAGE*/
+
+#login-page {
+	background: linear-gradient(to bottom right, #6254a9, #839de2);
+	height: 100vh;
+}
+
+h1, p, label, input {
+	color: white;
+	margin-bottom: 25px;
+}
+
+#login-title {
+	font-size: 41px;
+	padding-bottom: 15px;
+}
+
+#tagline {
+	padding-bottom: 45px;
+	font-size: 21px;
+	text-align: center;
+	font-style: italic;
+}
+
+.login-con {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+input {
+	float: left;
+	clear: both;
+	width: 100%;
+	border: 0; 
+	padding-bottom: 10px; 
+	margin-right: 0.5%; 
+}
+
+.login-input {
+    height: 25px;
+    color: white;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid #fff;
+	outline: none;
+	text-align: center;
+	cursor: pointer;
+	margin-top: 25px;
+}
+
+label h2{
+	float: left;
+	text-align: center;
+	width: 100%;
+	font-size: 21px;
+}
+
+.submit-bttn {
+	padding: 10px;
+	color: #6254a9;
+	cursor: pointer;
+}
+
+/* WELCOME PAGE */
+
+#welcome-page {
+	background: linear-gradient(to top right, #622d44, #eeb975);
+	height: 100vh;
+}
+
+.welcome-con {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#welcome-title {
+	font-size: 21px;
+	text-align: center;
+	font-style: italic;
+}
+
+#welcome-tagline {
+	font-size: 36px;
+	color: white;
+	padding-bottom: 25px;
+}
+
+.time-message {
+	position: absolute;
+	color: white;
+	font-size: 24px;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    text-shadow: 0 0 3px #fec632;
+    text-decoration: underline;
+    text-align: center;
+}
