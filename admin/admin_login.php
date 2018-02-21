@@ -74,7 +74,7 @@
 <div id="login-page">
 	<div class="login-con">
 		<h1 id="login-title">Welcome Human from Planet Earth</h1>
-		<p id="tagline">please enter your identification</p>
+		<p id="tagline">please enter your identification <br> (username: h_ostrander password: password)</p>
 		<?php if(!empty($message)){echo $message;} ?>
 
 		<form action="admin_login.php" method="post">
@@ -86,6 +86,8 @@
 			<br>
 			<!-- user clicks submit, then then php checks through the information -->
 			<input class="submit-bttn" type="submit" name="submit" value="Beam Me Up Scotty">
+
+			<a id="createuser" href="admin_createuser.php">Create a New User</a>
 
 		</form>
 	</div>	

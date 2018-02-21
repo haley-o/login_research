@@ -12,4 +12,9 @@
 		}
 	}
 
+	function logged_out() {
+		session_destroy(); //terminate any existing sessions
+		redirect_to("../admin_login.php"); //send back to the login, consider what file is calling the function when redirecting
+	}
+
 ?>

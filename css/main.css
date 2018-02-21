@@ -14,6 +14,7 @@ h1, p, label, input {
 #login-title {
 	font-size: 41px;
 	padding-bottom: 15px;
+	text-align: center;
 }
 
 #tagline {
@@ -83,6 +84,7 @@ label h2{
 	font-size: 21px;
 	text-align: center;
 	font-style: italic;
+	padding-bottom: 25px;
 }
 
 #welcome-tagline {
@@ -101,4 +103,52 @@ label h2{
     text-shadow: 0 0 3px #fec632;
     text-decoration: underline;
     text-align: center;
+}
+
+/* Create User Page */
+
+.createuser-page {
+	background: linear-gradient(to top right, #10848a, #4ed0e8);
+	height: 100vh;
+}
+
+.createuser-contentCon {
+	width: 40%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#createuser-bttn {
+	margin-top: 25px;
+}
+
+#createuser-title {
+	font-size: 36px;
+	padding-bottom: 45px;
+}
+
+select {
+	width: 100%;
+	height: 35px;
+	color: #6254a9;
+	margin-top: 5px;
+}
+
+a {
+	color: white;
+	font-size: 18px !important;
+	float: left;
+    width: 100%;
+    clear: both;
+}
+
+#createuser {
+	text-align: center;
+}
+
+#password-input {
+	display: none;
 }

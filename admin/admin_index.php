@@ -82,6 +82,9 @@
 	<div class="welcome-con">
 		<?php echo"<h2 id='welcome-tagline'>Hi {$_SESSION['user_name']}</h2>"; ?>
 		<h1 id="welcome-title">Welcome to the greatest webpage to ever have existed, <br> enjoy your stay.</h1>
+
+		<!-- <a id="createuser" href="admin_createuser.php">Create a New User</a> -->
+		<a id="signout" href="phpscripts/caller.php?caller_id=logout">Sign Out</a>
 	</div>
 </div>
 	
