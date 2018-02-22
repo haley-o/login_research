@@ -10,29 +10,18 @@
 	if(isset($_POST['submit'])) {
 		$fname = trim($_POST['fname']);
 		$username = trim($_POST['username']);
-		$password = randomPassword(); // change this to put generated password into the database
+		$password = randomPassword(); //this is submitting our new random password!
 		$email = trim($_POST['email']);
 		$userlvl = $_POST['userlvl'];
-
-		// $to = $email; // sending the email to the email submitted
-	 //    $subject = "Your username and password";
-	 //    $body = "Username: " . $username . "\r\n";
-	 //    $body .= "Password: " . $password . "\r\n";
-	 //    $body .= "Login URL: http://localhost/admin/admin_createuser.php";
-	 //    $headers = 'From: noreply@test.com' . "\r\n";
-		// $message = $_POST['message'];
-		// $result = createUser($fname, $username, $password, $email, $userlvl);
     
 		if(empty($userlvl)){
 			$message = "Please select a user level.";
 		}else{
-			// createUser($fname, $username, $password, $email, $userlvl);
-			 // mail($to, $subject, $body, $headers);
-			 // echo $body;
-			sendEmail($username, $password, $email); 
-			// echo $password;
-		}
+			createUser($fname, $username, $password, $email, $userlvl);
+			sendEmail($username, $password, $email); // sending our email when form is succesfully filled
+			//according to the internet when using wamp I am unable to actually send emails because my site is not live, tried a few different things but nothing worked so I was not actually able to test my email, tested it with an echo and the username, randomly generated password and url were echoed back when the createUser is commented out (seems to work??)
 	}
+}
 
 
 ?>
@@ -59,6 +48,7 @@
 			<label><h2><h2>Username:</h2></label>
 			<input class="login-input" type="text" name="username" value="<?php if(!empty($username)){echo $username;} ?>"><br><br>
 
+			<!-- commented out my password since we are now generating our own randomly -->
 			<!-- <label><h2>Password:</h2></label> -->
 			<!-- <input id="password-input" type="text" name="password" value=""><br><br> -->
 
