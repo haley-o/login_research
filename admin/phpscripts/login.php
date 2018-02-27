@@ -21,13 +21,13 @@
 				$updatequery = mysqli_query($link, $updatestring, $lastLogin);
 			}
 
-			if ($found_user['user_logins'] > 0) {
-				// $data = mysqli_query("Select * from users where username = '$username' and password = '$password'");
+			if ($found_user['user_logins'] > 0) { // if user_logins is greater than 0 send to the admin page
 				redirect_to("admin_index.php");
 			}
 
 			else {
-				redirect_to("admin_edituser.php");
+				redirect_to("admin_edituser.php"); //otherwise new users will be sent to edit their account on their first login
+				ini_set('max_execution_time', 86400); //setting a timeout for new users, used 60 to test and it seems to work, currently set to last for a day
 			}
 
 		}
