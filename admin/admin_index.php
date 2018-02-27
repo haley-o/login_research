@@ -33,6 +33,7 @@
 		// echo $loginAttempts;
 
 
+
 	// This is updating our most recent login time into the database 
 	if(mysqli_multi_query($link, $lastLogin)){
 	    // echo "woo it works";
@@ -85,6 +86,8 @@
 
 		<!-- <a id="createuser" href="admin_createuser.php">Create a New User</a> -->
 		<a id="signout" href="phpscripts/caller.php?caller_id=logout">Sign Out</a>
+		<a href="admin_deleteuser.php">Delete User</a>
+		<a href="admin_edituser.php">Edit User</a>
 	</div>
 </div>
 	

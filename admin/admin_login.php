@@ -8,6 +8,7 @@
 
 	// making a server call to the remote address 
 	$ip = $_SERVER['REMOTE_ADDR'];
+
 	// echo $ip;
 	//  this is was is checked after the user has clicked submit
 	if(isset($_POST['submit'])){
@@ -21,40 +22,42 @@
 			// echo "you can type ;)";
 			$result = logIn($username, $password, $ip);
 			$message = $result;
-			// $lastLogin = "UPDATE tbl_user SET user_lastLogin = now() WHERE user_id=1";
+			// countLogins($id);
 		}else{
 			$message = "Please fill in the required fields";
 			// echo $message;
 		}
 
+
+		// This is no longer working please ignore will fix later
 		// this isn't right but it's working (sort of)
 
-		$user = "root";
-		$pass = "";
-		$url = "localhost";
-		$db = "db_movies";
+		// $user = "root";
+		// $pass = "";
+		// $url = "localhost";
+		// $db = "db_movies";
 
-		$link = mysqli_connect($url, $user, $pass, $db); 
+		// $link = mysqli_connect($url, $user, $pass, $db); 
 		
-		/* check connection */ 	
-		if(mysqli_connect_errno()) {
-			printf("Connect failed: %s\n", mysqli_connect_error());
-			exit();
-		}
+		// /* check connection */ 	
+		// if(mysqli_connect_errno()) {
+		// 	printf("Connect failed: %s\n", mysqli_connect_error());
+		// 	exit();
+		// }
 
-		// creating a query to get our table and set the user attempts to add 1 everyime the user attempts to log in
-		$loginAttempts = "UPDATE `tbl_user` SET `user_attempts` = user_attempts + 1 WHERE user_id = 1";
-		// echo $loginAttempts;
+		// // creating a query to get our table and set the user attempts to add 1 everyime the user attempts to log in
+		//  // $loginAttempts = "UPDATE `tbl_user` SET `user_attempts` = user_attempts + 1 WHERE user_id = {$id}";
+		// // echo $loginAttempts;
 
 
-		// this is running our login number
-		if(mysqli_multi_query($link, $loginAttempts)){
-	    // echo "woo it works";
-		} else {
-		    echo "Boo you broke it" . mysqli_error($link);
-		}
+		// // this is running our login number
+		// if(mysqli_multi_query($link, $loginAttempts)){
+	 //    // echo "woo it works";
+		// } else {
+		//     echo "Boo you broke it" . mysqli_error($link);
+		// }
 
-		mysqli_close($link);
+		// mysqli_close($link);
 
 	}
 

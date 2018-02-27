@@ -1,15 +1,21 @@
 <?php 
 
+	// ** Create User ** //
+
+
 	function createUser($fname, $username, $password, $email, $userlvl) {
 		include('connect.php');
-		$userString = "INSERT INTO tbl_user VALUES(NULL, '{$fname}', '{$username}', '{$password}', '{$email}', CURRENT_TIMESTAMP, '{$userlvl}', 'no', 0, 0)";
+		$userString = "INSERT INTO tbl_user VALUES(NULL, '{$fname}', '{$username}', '{$password}', '{$email}', CURRENT_TIMESTAMP, '{$userlvl}', 'no', 0, 0, 0)";
 
 		echo $userString;
 
 		$userQuery = mysqli_query($link, $userString);
+		// echo $userQuery;
 		if($userQuery) {
+			echo 'hello';
 			redirect_to("admin_index.php");
 		}else{
+			echo 'yoyo';
 			$message = "There was a problem setting up this user";
 			return $message;
 		}
@@ -17,6 +23,8 @@
 
 		mysqli_close($link);
 	}
+
+	// ** Generate random password ** //
 
 	//Generating a random password for new users
 	function randomPassword()  { //the length of this password will be the length of 5 characters
@@ -40,6 +48,8 @@
 
 }
 
+	// ** Send Email ** //
+
 	// start by creating a function to send the email after the user has been created
 	//similar to the above function, it is then called in the admin_create users.php
 	function sendEmail($username, $password, $email) {
@@ -51,8 +61,46 @@
 	    $body .= "Login URL: http://localhost/admin/admin_login.php";
 	    $headers = 'From: noreply@test.com' . "\r\n";
 
-	    mail($to, $subject, $body, $headers); //having issues sending mail() with my wamp, installed hMailServer to try to fix it but no luck
+	//     mail($to, $subject, $body, $headers); //having issues sending mail() with my wamp, installed hMailServer to try to fix it but no luck
 	}
+
+	// ** Edit User ** //
+
+	function editUser($id, $fname, $username, $password, $email) {
+		INCLUDE('connect.php');
+
+		$updatestring = "UPDATE tbl_user SET user_fname = '{$fname}', user_name = '{$username}', user_pass = '{$password}', user_email = '{$email}'  WHERE user_id = {$id}";
+		// echo $updatestring; 
+
+		$updatequery = mysqli_query($link, $updatestring);
+		if($updatequery){ 
+			redirect_to("admin_index.php");
+		}else{
+			$message = "There was a problem changing your information, please fix it.";
+			return $message;
+		}
+
+		mysql_close($link);
+	}
+
+	function deleteUser($id) {
+		// echo $id;
+		include('connect.php');
+		$delstring = "DELETE FROM tbl_user WHERE user_id = {$id}";
+		$delquery = mysqli_query($link, $delstring);
+		if($delquery){
+			redirect_to("../admin_index.php");
+		}else{
+			$message = "Call security";
+			return $message;
+		}
+
+		mysqli_close($link);
+	}
+
+
+
+	
 
 
 ?>

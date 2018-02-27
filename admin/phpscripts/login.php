@@ -12,21 +12,27 @@
 			$found_user = mysqli_fetch_array($user_set, MYSQLI_ASSOC);
 			$id = $found_user['user_id'];
 
-			// $date = date_create("Canada/Eastern");
-	// 	echo date_format($date, 'Y-m-d h:i:sa');
-			// echo $id;
-
-
 			//session is safer, do not use cookies to transfer through pages
 			$_SESSION['user_id'] = $id;
 			$_SESSION['user_name'] = $found_user['user_fname']; 
 			//checking if it came back positive, if yes then it runs an update on our database
 			if(mysqli_query($link, $loginstring)) {
-				$updatestring = "UPDATE tbl_user SET user_ip = '$ip' WHERE user_id = {$id}";
+				$updatestring = "UPDATE tbl_user SET user_logins = user_logins + 1 WHERE user_id = {$id}"; //this is adding in our login amounts, when a user logs in
 				$updatequery = mysqli_query($link, $updatestring, $lastLogin);
 			}
-			redirect_to("admin_index.php");
-		}else{
+
+			if ($found_user['user_logins'] > 0) {
+				// $data = mysqli_query("Select * from users where username = '$username' and password = '$password'");
+				redirect_to("admin_index.php");
+			}
+
+			else {
+				redirect_to("admin_edituser.php");
+			}
+
+		}
+
+		else{
 			$message = "Username and or password is incorrect.<br>Please make sure your cap locks is turned off.";
 			return $message;
 		}
@@ -35,5 +41,6 @@
 
 		mysqli_close($link);
 	}
+
 
 ?>
